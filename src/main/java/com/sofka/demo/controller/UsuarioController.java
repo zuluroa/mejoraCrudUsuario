@@ -1,12 +1,15 @@
 package com.sofka.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sofka.demo.models.UsuarioModel;
@@ -19,7 +22,7 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 	
-	@GetMapping("/obtener")
+	@GetMapping("/obtenerUsuario")
 	public ArrayList<UsuarioModel> obtenerUsuario(){
 		return usuarioService.obtenerUsuarios();
 	}
@@ -29,4 +32,13 @@ public class UsuarioController {
 		return usuarioService.guardarUsuario(usuario);
 	}
 	
+	@GetMapping(path = "/obtenerUsuario/{id}")
+	public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id){
+		return usuarioService.obtenerPorId(id);
+	}
+	
+	@GetMapping("/obtenerPorPrioriodad")
+	public ArrayList<UsuarioModel> obtenerPorPrioriodad(@RequestParam("prioridad") Integer prioridad){
+		return usuarioService.obtenerPorPrioridad(prioridad);
+	}
 }
