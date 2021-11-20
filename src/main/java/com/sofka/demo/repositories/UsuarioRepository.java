@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.sofka.demo.models.UsuarioModel;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<UsuarioModel,Long>{
-		public abstract ArrayList<UsuarioModel> findByPrioridad(Integer prioridad);
+public interface UsuarioRepository extends CrudRepository<UsuarioModel, Long> {
+	public abstract ArrayList<UsuarioModel> findByPrioridad(Integer prioridad);
+
+	public abstract UsuarioModel findByEmail(String email);
 }

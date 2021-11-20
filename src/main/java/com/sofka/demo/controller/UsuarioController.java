@@ -58,4 +58,9 @@ public class UsuarioController {
 		return usuarioService.guardarUsuario(usuario);
 	}
 	
+	@GetMapping("/obtenerUsuarioPorEmail")
+	public UsuarioModel obtenerUsuarioPorEmail(@RequestBody UsuarioModel usuario){
+		return usuarioService.obtenerporEmail(usuario);
+	}
+	
 }
