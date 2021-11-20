@@ -19,12 +19,12 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 	
-	@GetMapping()
+	@GetMapping("/obtener")
 	public ArrayList<UsuarioModel> obtenerUsuario(){
 		return usuarioService.obtenerUsuarios();
 	}
 	
-	@PostMapping()
+	@PostMapping("/guardar")
 	public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario){
 		return usuarioService.guardarUsuario(usuario);
 	}
